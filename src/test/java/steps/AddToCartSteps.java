@@ -31,6 +31,7 @@ public class AddToCartSteps {
 		driver.findElement(By.xpath("//span[text()='Login']")).click();
 		driver.findElement(By.cssSelector("input[formcontrolname='username']"))
 		.sendKeys("ortoni");
+		driver.findElement(By.cssSelector("input[formcontrolname='password']")).sendKeys(pass);
 		driver.findElement(By.xpath("(//span[text()='Login'])[last()]/.."))
 		.click();
 	}
