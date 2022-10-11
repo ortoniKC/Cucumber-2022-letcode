@@ -9,11 +9,11 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 //			dryRun = true,
 			snippets = SnippetType.CAMELCASE,
 			monochrome = true,
-			glue = "steps",
+			glue = { "steps", "hooks"},
 			plugin = {"pretty", "html:CucumberReports",
 					"json:reports/result.json",
-					"junit:reports/result.xml"}
-//			tags = {"@test"}
+					"junit:reports/result.xml"},
+			tags = {"@test"}
 		)
 
 public class Runner extends AbstractTestNGCucumberTests {

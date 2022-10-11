@@ -1,9 +1,6 @@
 #@E2E
 Feature: Bookcart Application tests
 
-  Background: 
-    Given User navigate to the BookCart application
-
   @prod
   Scenario Outline: Add to cart
     And user login into the application with "<username>" and "<password>"
@@ -20,5 +17,4 @@ Feature: Bookcart Application tests
     @test
     Examples: 
       | username | password | book            |
-      | ortoni   | pass1234 | Roomies koushik |
-      #| ortonikc | pass1234 | The Simple Wild |
+      | ortonikc | pass1234 | The Simple Wild |
