@@ -12,8 +12,8 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 			glue = { "steps", "hooks"},
 			plugin = {"pretty", "html:CucumberReports",
 					"json:reports/result.json",
-					"junit:reports/result.xml"},
-			tags = {"@test"}
+					"junit:reports/result.xml"}
+//			tags = {"@test"}
 		)
 
 public class Runner extends AbstractTestNGCucumberTests {

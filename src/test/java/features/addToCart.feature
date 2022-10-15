@@ -1,7 +1,7 @@
 #@E2E
 Feature: Bookcart Application tests
 
-  @prod
+  @prod @cleanCart
   Scenario Outline: Add to cart
     And user login into the application with "<username>" and "<password>"
     And user search for a "<book>"

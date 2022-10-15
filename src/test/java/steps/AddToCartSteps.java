@@ -45,7 +45,7 @@ public class AddToCartSteps extends DriverInstance{
 		wait.until(ExpectedConditions.invisibilityOf(snackBar));
 		String text = driver.findElement(By.cssSelector("#mat-badge-content-0")).getText();
 		System.out.println("No.of books in cart: "+text);
-		Assert.assertEquals(Integer.parseInt(text) < 0, true);
+		Assert.assertEquals(Integer.parseInt(text) > 0, true);
 	}	
 
 }
