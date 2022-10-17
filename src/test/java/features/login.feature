@@ -3,10 +3,10 @@ Feature: Bookcart Application tests
   Background: 
     And User clicks on the login button
 
-  #	@smoke @reg
+  	@smoke @reg
   Scenario: Login should be success
     And User enter the username as "ortoni"
-    And User enter the password as "Pass1234"
+    And User enter the password as "Pass123456575"
     When User click on the login button
     Then Login should be success
 
