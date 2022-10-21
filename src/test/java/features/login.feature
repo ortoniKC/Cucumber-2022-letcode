@@ -1,16 +1,16 @@
-Feature: Bookcart Application tests
+Feature: User Authentication tests
 
   Background: 
-    And User clicks on the login button
+    And User click on the login link
 
-  	@smoke @reg
+  @smoke @reg
   Scenario: Login should be success
     And User enter the username as "ortoni"
-    And User enter the password as "Pass123456575"
+    And User enter the password as "Pass1234"
     When User click on the login button
     Then Login should be success
 
-  #	@reg
+  @smoke @reg
   Scenario: Login should not be success
     Given User enter the username as "koushik"
     Given User enter the password as "Passkoushik"

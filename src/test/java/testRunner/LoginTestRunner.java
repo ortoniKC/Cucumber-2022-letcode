@@ -5,19 +5,19 @@ import cucumber.api.SnippetType;
 import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(
-			features = {"src/test/java/features/"},
-//			dryRun = true,
+			features = {"src/test/java/features/login.feature"},
+			dryRun = !true,
 			snippets = SnippetType.CAMELCASE,
 			monochrome = true,
-			glue = { "steps", "hooks"},
-			plugin =  "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+			glue = { "steps", "hooks", "pages"},
+			plugin =  "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 			
 //			plugin = {"pretty", "html:CucumberReports",
 //					"json:reports/result.json",
 //					"junit:reports/result.xml"}
-			tags = {"@smoke and  @reg"}
+//			tags = {"@smoke and  @reg"}
 		)
 
-public class Runner extends AbstractTestNGCucumberTests {
+public class LoginTestRunner extends AbstractTestNGCucumberTests {
 
 }

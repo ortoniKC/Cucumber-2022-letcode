@@ -1,5 +1,5 @@
 #@E2E
-Feature: Bookcart Application tests
+Feature: Prodcuts test
 
   @prod @cleanCart
   Scenario Outline: Add to cart

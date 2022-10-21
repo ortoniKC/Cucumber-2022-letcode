@@ -9,11 +9,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import base.DriverInstance;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
-import cucumber.api.java.AfterStep;
 import cucumber.api.java.Before;
-import cucumber.api.java.BeforeStep;
 
 public class MyHooks extends DriverInstance{
 	
@@ -40,8 +39,7 @@ public class MyHooks extends DriverInstance{
 		Options manage =driver.manage(); 
 		manage.timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		manage.window().maximize(); 
-
-		
+	
 		// scenario methods
 		
 		System.out.println("name: "+scenario.getName());
