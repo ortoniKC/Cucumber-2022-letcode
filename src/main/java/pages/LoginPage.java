@@ -7,59 +7,66 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-import base.DriverInstance;
+import base.PageContext;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class LoginPage extends DriverInstance{
+public class LoginPage{
+
+    PageContext context;
+    public LoginPage(PageContext context) {
+        this.context = context;
+    }
 
     @Given("User enter the username as {string}")
     public LoginPage userEnterTheUsernameAs(String username) {
-        driver.findElement(By.cssSelector("input[formcontrolname='username']")).
+        context.getDriver().findElement(By.cssSelector("input[formcontrolname='username']")).
         sendKeys(username);
         return this;
     }
 
     @Given("User enter the password as {string}")
     public LoginPage userEnterThePasswordAs(String password) {
-        driver.findElement(By.cssSelector("input[formcontrolname='password']")).
+        context.getDriver().findElement(By.cssSelector("input[formcontrolname='password']")).
         sendKeys(password);
         return this;
     }
 
     @When("User click on the login button")
     public HomePage userClickOnTheLoginButton() {
-        driver.findElement(By.xpath("(//span[text()='Login'])[last()]/.."))
+        context.getDriver().findElement(By.xpath("(//span[text()='Login'])[last()]/.."))
         .click();
-        return new HomePage();
+        return new HomePage(context);
     }
 
     @Then("Login should be success")
-    public HomePage loginShouldBeSuccess() {
-        WebElement userEle = driver.findElement(By.
+    public LoginPage loginShouldBeSuccess() {
+        WebElement userEle =  context.getDriver().findElement(By.
                 xpath("//button[contains(@class,'mat-focus-indicator mat-menu-trigger')]//span[1]"
                         ));
-        wait.until(ExpectedConditions.visibilityOf(userEle));
+        context.getWait().until(ExpectedConditions.visibilityOf(userEle));
         assertEquals(userEle.isDisplayed(), true);
-        return new HomePage();
+        return this;
     }
 
     @When("Login should fail")
     public LoginPage loginShouldFail() {
         String text =
-                driver.findElement(By.cssSelector("mat-error[role='alert']")).getText();
+                context.getDriver().findElement(By.cssSelector("mat-error[role='alert']")).getText();
         Assert.assertEquals(text.trim(), "Username or Password is incorrect.");
         return this;
     }
 
     @Given("user login into the application with {string} and {string}")
     public void userLoginIntoTheApplicationWithAnd(String uname, String pass) {
-        new HeaderPage().userClicksOnTheLoginLink();
+        new HeaderPage(context).userClicksOnTheLoginLink();
         this.userEnterTheUsernameAs(uname)
-            .userEnterThePasswordAs(pass)
-            .userClickOnTheLoginButton();
+        .userEnterThePasswordAs(pass)
+        .userClickOnTheLoginButton();
         this.loginShouldBeSuccess();
+
+
         /*
          * this.userEnterTheUsernameAs(uname);
          * this.userEnterThePasswordAs(pass);

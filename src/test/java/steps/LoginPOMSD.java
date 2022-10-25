@@ -1,8 +1,5 @@
 package steps;
 
-import cucumber.api.java.en.And;
-import pages.HeaderPage;
-
 public class LoginPOMSD {
     
     /*
